@@ -2,11 +2,18 @@
 #include <vector>
 
 
-float min(std::vector<float> v) {
+float min_max(std::vector<float> v, bool min) {
     float temp = v[0];
     for (float i : v) {
-        if (i < temp) {
-            temp = i;
+        if(min){
+            if (i < temp) {
+                temp = i;
+            }
+        }
+        else {
+            if (i > temp) {
+                temp = i;
+            }
         }
     }
     return temp;
@@ -16,7 +23,9 @@ float min(std::vector<float> v) {
 int main()
 {
     std::vector<float> v = { 2, 5, 9, 10, 3, 1 };
-    std::cout << "The lowest value of this vector is: " << min(v);
+    std::cout << "The lowest value of this vector is: " << min_max(v, true);
+    std::cout << "\n";
+    std::cout << "The highest value of this vector is: " << min_max(v, false);
     
     return 0;
 }
