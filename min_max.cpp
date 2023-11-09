@@ -3,6 +3,7 @@
 
 
 float min_max(std::vector<float> v, bool min) {
+    // returns min or max value from vector
     float temp = v[0];
     for (float i : v) {
         if(min){
